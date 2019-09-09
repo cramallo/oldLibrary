@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:os="http://oldLibrary.com/books">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <os:getOrderRequest>
+            <os:order>1231231231</os:order>
+        </os:getOrderRequest>
+    </soapenv:Body>
+</soapenv:Envelope>

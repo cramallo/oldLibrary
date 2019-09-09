@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://oldLibrary.com/books"
+           xmlns:tns="http://oldLibrary.com/books" elementFormDefault="qualified">
+
+    <!-- BOOKS -->
+    <xs:element name="GetBookDetailsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="isbn" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetBookDetailsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="book" type="tns:book"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- ORDERS -->
+
+    <xs:element name="CreateOrderRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="isbn" type="xs:string"/>
+                <xs:element name="customerName" type="xs:string"/>
+                <xs:element name="customerLastName" type="xs:string"/>
+                <xs:element name="customerAddress" type="xs:string"/>
+                <xs:element name="customerPhone" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="CreateOrderResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="order" type="tns:order"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="getOrderRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="order" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getOrderResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="order" type="tns:order"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <!-- TYPES -->
+
+    <xs:complexType name="book">
+        <xs:sequence>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="subtitle" type="xs:string"/>
+            <xs:element name="price" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="order">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="isbn" type="xs:string"/>
+            <xs:element name="customerName" type="xs:string"/>
+            <xs:element name="customerLastName" type="xs:string"/>
+            <xs:element name="customerAddress" type="xs:string"/>
+            <xs:element name="customerPhone" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
